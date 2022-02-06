@@ -11,7 +11,6 @@ def run():
 
     # Build list of stations
     stations = build_station_list()
-    number_of_stations = len(stations)
     distances_from_cambridge = stations_by_distance(stations, (52.2053, 0.1218))
 
     print("\nClosest 10 stations:")

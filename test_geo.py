@@ -1,6 +1,9 @@
 """Unit test for the geo module"""
 
-from floodsystem.geo import *
+from floodsystem.geo import stations_by_distance, stations_within_radius
+from floodsystem.geo import rivers_with_station, stations_by_river, rivers_by_station_number
+from floodsystem.station import MonitoringStation
+
 
 def test_stations_by_distance():
     """Test the stations by distance function."""
@@ -16,6 +19,7 @@ def test_stations_by_distance():
     distances_from_cambridge = stations_by_distance([s, s], (-2.0, 4.0))
 
     assert distances_from_cambridge[1][1] == 0.0
+
 
 def test_stations_within_radius():
     """Test stations within radius function."""
@@ -33,6 +37,7 @@ def test_stations_within_radius():
     stations = stations_within_radius([s1, s1, s1, s2, s1, s2], (-2.0, 4.0), 20)
 
     assert len(stations) == 4
+
 
 def test_rivers_with_station():
     """Test rivers with station function."""
@@ -57,6 +62,7 @@ def test_rivers_with_station():
     assert "River Y" in rivers
     assert "River Z" in rivers
 
+
 def test_stations_by_river():
     """Test stations by river function."""
     s_id = "test-s-id"
@@ -78,6 +84,7 @@ def test_stations_by_river():
     assert rivers_stations_dict["River X"] == ["some station"]
     assert rivers_stations_dict["River Y"] == ["some station"]
     assert rivers_stations_dict["River Z"] == ["some station" * 2]
+
 
 def test_rivers_by_station_number():
     """Test rivers by station number function."""
