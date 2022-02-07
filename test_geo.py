@@ -1,5 +1,6 @@
 """Unit test for the geo module"""
 
+from tkinter import W
 from floodsystem.geo import stations_by_distance, stations_within_radius
 from floodsystem.geo import rivers_with_station, stations_by_river, rivers_by_station_number
 from floodsystem.station import MonitoringStation
@@ -81,9 +82,9 @@ def test_stations_by_river():
     stations = [sx, sy, sz]
     rivers_stations_dict = stations_by_river(stations)
 
-    assert rivers_stations_dict["River X"] == ["some station"]
-    assert rivers_stations_dict["River Y"] == ["some station"]
-    assert rivers_stations_dict["River Z"] == ["some station" * 2]
+    assert rivers_stations_dict["River X"][0].name == "some station"
+    assert rivers_stations_dict["River Y"][0].name == "some station"
+    assert rivers_stations_dict["River Z"][-1].name == "some station" * 2
 
 
 def test_rivers_by_station_number():

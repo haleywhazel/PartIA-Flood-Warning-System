@@ -30,8 +30,7 @@ def stations_by_river(stations):
     """Returns a dictionary containing the river name as the key and a list of stations on that river as the value."""
     rivers_stations_dict = {}
     for river in rivers_with_station(stations):
-        unsorted_stations = [station.name for station in stations if station.river == river]
-        rivers_stations_dict[river] = sorted(unsorted_stations)
+        rivers_stations_dict[river]= list(filter(lambda station: station.river == river, stations))
     return rivers_stations_dict
 
 
