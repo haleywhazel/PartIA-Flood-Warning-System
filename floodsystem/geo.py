@@ -30,7 +30,7 @@ def stations_by_river(stations):
     """Returns a dictionary containing the river name as the key and a list of stations on that river as the value."""
     rivers_stations_dict = {}
     for river in rivers_with_station(stations):
-        rivers_stations_dict[river]= list(filter(lambda station: station.river == river, stations))
+        rivers_stations_dict[river] = list(filter(lambda station: station.river == river, stations))
     return rivers_stations_dict
 
 

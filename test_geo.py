@@ -1,6 +1,5 @@
 """Unit test for the geo module"""
 
-from tkinter import W
 from floodsystem.geo import stations_by_distance, stations_within_radius
 from floodsystem.geo import rivers_with_station, stations_by_river, rivers_by_station_number
 from floodsystem.station import MonitoringStation

@@ -16,9 +16,13 @@ def run():
     print("\n{} stations. First 10 - {}".format(len(rivers), rivers[:10]))
 
     rivers_stations_dict = stations_by_river(stations)
-    print("\n\nStations next to River Aire: {}".format(sorted([station.name for station in rivers_stations_dict['River Aire']])))
-    print("\n\nStations next to River Cam: {}".format(sorted([station.name for station in rivers_stations_dict['River Cam']])))
-    print("\n\nStations next to River Thames: {}".format(sorted([station.name for station in rivers_stations_dict['River Thames']])))
+
+    def stations_next_to(river):
+        sorted([station.name for station in rivers_stations_dict[river]])
+
+    print("\n\nStations next to River Aire: {}".format(stations_next_to("River Aire")))
+    print("\n\nStations next to River Cam: {}".format(stations_next_to("River Cam")))
+    print("\n\nStations next to River Thames: {}".format(stations_next_to("River Thames")))
 
 
 if __name__ == "__main__":
