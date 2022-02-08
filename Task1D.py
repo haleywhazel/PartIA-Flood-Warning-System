@@ -18,7 +18,7 @@ def run():
     rivers_stations_dict = stations_by_river(stations)
 
     def stations_next_to(river):
-        sorted([station.name for station in rivers_stations_dict[river]])
+        return sorted([station.name for station in rivers_stations_dict[river]])
 
     print("\n\nStations next to River Aire: {}".format(stations_next_to("River Aire")))
     print("\n\nStations next to River Cam: {}".format(stations_next_to("River Cam")))
