@@ -50,3 +50,24 @@ def test_inconsistent_typical_range_stations():
 
     assert len(stations) == 5
     assert stations[0].name == "some station"
+
+
+def test_relative_water_level():
+    """Tests relative water level function"""
+
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (0.0, 10.0)
+    river = "River X"
+    town = "My Town"
+    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+    assert s.relative_water_level() is None
+
+    s.latest_level = 5.0
+    assert s.relative_water_level() == 0.5
+
+    s.latest_level = 8.6
+    assert s.relative_water_level() == 0.86
