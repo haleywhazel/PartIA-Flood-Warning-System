@@ -82,7 +82,7 @@ def run():
     for station in severe_risk:
         print(station.name)
 
-    print("Number of low risk stations: " + str(len(low_risk)))
+    print("\nNumber of low risk stations: " + str(len(low_risk)))
     print("Number of moderate risk stations: " + str(len(moderate_risk)))
     print("Number of high risk stations: " + str(len(high_risk)))
     print("Number of severe risk stations: " + str(len(severe_risk)))
