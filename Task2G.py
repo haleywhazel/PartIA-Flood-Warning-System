@@ -87,6 +87,48 @@ def run():
     print("Number of high risk stations: " + str(len(high_risk)))
     print("Number of severe risk stations: " + str(len(severe_risk)))
 
+    towns = list(set([station_tuple[0].town for station_tuple in stations]))
+    severe_towns = []
+    high_towns = []
+    moderate_towns = []
+    low_towns = []
+
+    for town in towns:
+        for station in severe_risk:
+            if station.town == town and town not in severe_towns:
+                severe_towns.append(town)
+        for station in high_risk:
+            if station.town == town and town not in severe_towns and town not in high_towns:
+                high_towns.append(town)
+        for station in moderate_risk:
+            if station.town == town:
+                if town not in severe_towns and town not in high_towns and town not in moderate_towns:
+                    moderate_towns.append(town)
+        for station in low_risk:
+            if station.town == town:
+                if town not in severe_towns:
+                    if town not in high_towns:
+                        if town not in moderate_towns:
+                            if town not in low_towns:
+                                low_towns.append(town)
+    print("\nLow risk towns:\n")
+    for town in low_towns:
+        if town is not None:
+            print(town)
+    print("\nModerate risk towns:\n")
+    for town in moderate_towns:
+        if town is not None:
+            print(town)
+    print("\nHigh risk towns:\n")
+    for town in high_towns:
+        if town is not None:
+            print(town)
+    print("\nSevere risk towns:\n")
+    for town in severe_towns:
+        if town is not None:
+            print(town)
+    print("\n")
+
 
 if __name__ == "__main__":
     print("*** CUED Part IA Flood Warning System ***")
