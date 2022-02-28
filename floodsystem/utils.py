@@ -27,3 +27,10 @@ def sorted_by_key(x, i, reverse=False):
         return element[i]
 
     return sorted(x, key=key, reverse=reverse)
+
+def gt_with_none(a, b):
+    """Implementation of greater than return False if a or b are NoneType values"""
+    if a == None or b == None:
+        return False
+    else:
+        return a > b
